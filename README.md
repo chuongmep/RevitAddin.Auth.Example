@@ -15,11 +15,17 @@ The add-in is a simple Revit add-in that will authenticate with Autodesk Desktop
 
 ![](docs/hero.png)
 
-- Copy the `client_id` to `Resources.resx`
+- Copy the `client_id` value to environment variable `CLIENT_ID` or use command line to set the value
 
-![](docs/devenv_YkSog6T9ii.png)
+```bash
+set CLIENT_ID=your_client_id
+```
 
-- Create a callback URL in the format `http://localhost:8080/api/auth/callback` and add it to the `Redirect URIs` in the application settings, and then add it to the `Resources.resx`
+- Create a callback URL in the format `http://localhost:8080/api/auth/callback` and add it to the `Redirect URIs` in the application settings, and then replace inside the code at command 
+
+```csharp
+ string callBackUrl = "http://localhost:8080/api/auth/callback";
+```
 
 - Debug the add-in and run command demo example to see the authentication process and token.
 
