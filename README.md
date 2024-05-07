@@ -38,6 +38,7 @@ The repository is licensed under the MIT license. For more information see the [
 
 - Github 3Leg CSharp - https://github.com/chuongmep/aps-toolkit-3leg-csharp
 - Auth PKCE Csharp - https://github.com/chuongmep/aps-tookit-auth-3leg-pkce
+- Auth 3Leg Python Autodek - https://chuongmep.com/posts/2024-05-01-get-3leg-aps-with-python.html
 - https://github.com/ricaun-io/ricaun.Revit.UI.Tasks
 - https://github.com/autodesk-platform-services/aps-pkce-desktop-app
 - https://github.com/autodesk-platform-services/aps-pkce-webapp
