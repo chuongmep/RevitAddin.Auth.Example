@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -59,13 +60,15 @@ namespace RevitAddin.AdskAuth.Example.Revit.Commands
 
         private async void RedirectToLogin(string codeChallenge)
         {
-            string[] prefixes =
+            string[] prefixes = { "http://localhost:8080/api/auth/" };
+            var url = $"https://developer.api.autodesk.com/authentication/v2/authorize?response_type=code&client_id={Globals.ClientId}&redirect_uri={HttpUtility.UrlEncode(Globals.CallbackURL)}&scope=data:read&prompt=login&code_challenge={codeChallenge}&code_challenge_method=S256";
+
+            var processStartInfo = new ProcessStartInfo
             {
-                "http://localhost:8080/api/auth/"
+                FileName = url,
+                UseShellExecute = true
             };
-            System.Diagnostics.Process.Start(
-                fileName:
-                $"https://developer.api.autodesk.com/authentication/v2/authorize?response_type=code&client_id={Globals.ClientId}&redirect_uri={HttpUtility.UrlEncode(Globals.CallbackURL)}&scope=data:read&prompt=login&code_challenge={codeChallenge}&code_challenge_method=S256");
+            Process.Start(processStartInfo);
             await SimpleListenerExample(prefixes);
         }
 
